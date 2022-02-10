@@ -1,7 +1,7 @@
   import React from 'react';
 import Gallery from './Gallery'
 
-const Deals = () => ( 
+const Deals = () => (
  <section className="padding-bottom mt-5">
  <div className="card card-deal">
      <div className="col-heading content-body">
@@ -15,45 +15,45 @@ const Deals = () => (
        <div> <span className="num">58</span> <small>Min</small></div>
        <div> <span className="num">02</span> <small>Sec</small></div>
      </div>
-   </div> 
+   </div>
    <div className="row no-gutters items-wrap">
     <div className="col-md col-6">
      <figure className="card-product-grid card-sm">
-      <a href="#" className="img-wrap"> 
-       <img src={process.env.PUBLIC_URL + 'images/items/3.jpg'} /> 
+      <a href="#" className="img-wrap">
+       <img src={process.env.PUBLIC_URL + 'images/items/3.jpg'} />
       </a>
       <div className="text-wrap p-3">
        	<a href="#" className="title">Summer clothes</a>
        	<span className="badge badge-danger"> -20% </span>
       </div>
    </figure>
- </div> 
+ </div>
  <div className="col-md col-6">
    <figure className="card-product-grid card-sm">
-    <a href="#" className="img-wrap"> 
-     <img src={process.env.PUBLIC_URL + 'images/items/4.jpg'} /> 
+    <a href="#" className="img-wrap">
+     <img src={process.env.PUBLIC_URL + 'images/items/4.jpg'} />
    </a>
    <div className="text-wrap p-3">
      <a href="#" className="title">Some category</a>
      <span className="badge badge-danger"> -5% </span>
    </div>
  </figure>
-</div> 
+</div>
 <div className="col-md col-6">
  <figure className="card-product-grid card-sm">
-  <a href="#" className="img-wrap"> 
-   <img src={process.env.PUBLIC_URL + 'images/items/5.jpg'} /> 
+  <a href="#" className="img-wrap">
+   <img src={process.env.PUBLIC_URL + 'images/items/5.jpg'} />
  </a>
  <div className="text-wrap p-3">
    <a href="#" className="title">Another category</a>
    <span className="badge badge-danger"> -20% </span>
  </div>
 </figure>
-</div> 
+</div>
 <div className="col-md col-6">
  <figure className="card-product-grid card-sm">
-  <a href="#" className="img-wrap"> 
-   <img src={process.env.PUBLIC_URL + 'images/items/6.jpg'} /> 
+  <a href="#" className="img-wrap">
+   <img src={process.env.PUBLIC_URL + 'images/items/6.jpg'} />
  </a>
  <div className="text-wrap p-3">
    <a href="#" className="title">Home apparel</a>
@@ -63,18 +63,18 @@ const Deals = () => (
 </div>
 <div className="col-md col-6">
  <figure className="card-product-grid card-sm">
-  <a href="#" className="img-wrap"> 
-    <img src={process.env.PUBLIC_URL + 'images/items/7.jpg'} /> 
+  <a href="#" className="img-wrap">
+    <img src={process.env.PUBLIC_URL + 'images/items/7.jpg'} />
  </a>
  <div className="text-wrap p-3">
    <a href="#" className="title text-truncate">Smart watches</a>
    <span className="badge badge-danger"> -10% </span>
  </div>
 </figure>
-</div> 
 </div>
 </div>
-</section>   
+</div>
+</section>
 )
 
 const Slider = () => (
@@ -86,7 +86,7 @@ const Slider = () => (
   </ol>
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img src="images/banners/slide1.jpg" alt="First slide" /> 
+      <img src="images/banners/slide1.jpg" alt="First slide" />
     </div>
     <div className="carousel-item">
       <img src="images/banners/slide2.jpg" alt="Second slide" />
@@ -107,8 +107,10 @@ const Slider = () => (
 
 const Home = () => {
     return(
-      <div className="container" style={{marginTop: '130px'}}>  
+      <div className="container" style={{marginTop: '130px'}}>
        	{/* Content here */}
+         <Deals/>
+         <Gallery/>
       </div>
     )
 }
