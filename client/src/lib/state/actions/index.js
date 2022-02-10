@@ -1,44 +1,46 @@
-import { 
-  ADD_TO_CART, 
+import {
+  ADD_TO_CART,
   REMOVE_FROM_CART,
   SET_PAGE_INDEX,
-  GET_PRODUCTS_PENDING, 
-  GET_PRODUCTS_SUCCESS, 
+  GET_PRODUCTS_PENDING,
+  GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_FAILURE,
   UPDATE_CART,
-  CHECKOUT, 
+  CHECKOUT,
   SET_DELIVERY_CHOICE
 } from './actionTypes'
 
+import { getProducts } from '../../service'
 
- const returnProductsArrays = (items) => { 
+
+ const returnProductsArrays = (items) => {
   let TwoDimensionalArray = []
   let remainder = items.length % 9
   let i = 0
   while (i < (items.length - remainder)) {
     let array = items.slice(i, i + 9)
     TwoDimensionalArray.push(array)
-    i += 9 
+    i += 9
   }
   const array = items.slice(i)
   TwoDimensionalArray.push(array)
   return TwoDimensionalArray
 }
 
-export function getProductsPending() { 
+export function getProductsPending() {
   return {
     type: GET_PRODUCTS_PENDING
   };
 }
-export function getProductsSuccess(data) { 
+export function getProductsSuccess(data) {
   return {
-    type: GET_PRODUCTS_SUCCESS, 
+    type: GET_PRODUCTS_SUCCESS,
      payload: { data }
   };
 }
-export function getProductsFailure(error) { 
+export function getProductsFailure(error) {
  return {
-    type: GET_PRODUCTS_FAILURE, 
+    type: GET_PRODUCTS_FAILURE,
      payload: { error }
   };
 }
@@ -48,13 +50,13 @@ export function addToCart(product) {
     payload: { product }
   };
 }
-export function updateCart(id, quantity) { 
+export function updateCart(id, quantity) {
   return {
     type: UPDATE_CART,
     payload: { id, quantity }
   };
 }
-export function setDelivery(choice) { 
+export function setDelivery(choice) {
   return {
     type: SET_DELIVERY_CHOICE,
     payload: { choice }
@@ -66,7 +68,7 @@ export function removeFromCart(id) {
     payload: { id }
   };
 }
-export function checkout() { 
+export function checkout() {
   return {
     type: CHECKOUT
   };
@@ -79,3 +81,11 @@ export function setPage(index) {
 }
 
 // Networking - MongoDB
+export const fetchProducts = () => {
+  return async function (dispatch) {
+    dispatch(getProductsPending);
+    getProducts()
+    .then((data) => dispatch(getProductsSuccess(data)))
+    .catch((err) => dispatch(getProductsFailure(err)))
+  }
+}
